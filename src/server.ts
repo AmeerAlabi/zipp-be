@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config(); // Load env vars BEFORE importing config
-
+dotenv.config(); 
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { connectDatabase } from './config/database';
@@ -60,6 +59,12 @@ const startServer = async (): Promise<void> => {
     app.listen(config.port, () => {
       logger.info(`🚀 Server running on port ${config.port}`);
       logger.info(`Environment: ${config.nodeEnv}`);
+      logger.info(`MongoDB URI: ${config.mongodb.uri.replace(/\/\/([^:]+):([^@]+)@/, '//***:***@')}`); // Hide credentials
+      logger.info(`Frontend URL: ${config.cors.frontendUrl}`);
+      logger.info(`Upload Dir: ${config.paths.uploadDir}`);
+      logger.info(`Compressed Dir: ${config.paths.compressedDir}`);
+      logger.info(`Max File Size: ${(config.file.maxSize / 1024 / 1024).toFixed(0)} MB`);
+      logger.info(`File Retention: ${config.file.retentionHours} hours`);
     });
   } catch (error) {
     logger.error('Failed to start server:', error);
