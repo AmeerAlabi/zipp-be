@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config(); // Load env vars BEFORE importing config
+
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { connectDatabase } from './config/database';

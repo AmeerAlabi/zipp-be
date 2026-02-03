@@ -1,12 +1,4 @@
-import dotenv from 'dotenv';
-import path from 'path';
-
-// Load .env.local for development, .env.production for production
-const envFile = process.env.NODE_ENV === 'production' 
-  ? '.env.production' 
-  : '.env.local';
-
-dotenv.config({ path: envFile });
+// Environment config - dotenv is loaded in server.ts before this file is imported
 
 export const config = {
   nodeEnv: process.env.NODE_ENV || 'development',
