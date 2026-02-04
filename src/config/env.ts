@@ -19,7 +19,7 @@ export const config = {
   },
   
   cors: {
-    frontendUrl: process.env.FRONTEND_URL || 'http://localhost:3000',
+    frontendUrl: process.env.FRONTEND_URL || 'http://localhost:8080',
   },
   
   logging: {
