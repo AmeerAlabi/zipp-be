@@ -19,7 +19,7 @@ export const config = {
   },
   
   cors: {
-    frontendUrl: process.env.FRONTEND_URL || 'https://www.zipfast.app/',
+    frontendUrl: (process.env.FRONTEND_URL || 'https://www.zipfast.app').replace(/\/$/, ''), // Remove trailing slash
   },
   
   logging: {
